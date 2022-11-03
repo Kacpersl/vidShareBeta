@@ -1,6 +1,25 @@
-.starting {
+.box-films {
     max-width: 90%;
-    border: 3px solid rgb(180, 180, 180);
-    height: 30vh;
-    width: 1000px;
+    border: 3px solid #b4b4b4;
+    height: 40vh;
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color: #2b2c31;
+}
+
+.box-films h2 {
+    color: #b4b4b4;
+    margin-left: 1rem;
+    display: block;
+}
+
+.box-films .videos-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.box-films .videos-row .video {
+    height: 12rem;
+    width: 30%;
+    border: 1px solid #ad4bad;
 }
