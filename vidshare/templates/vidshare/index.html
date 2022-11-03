@@ -1,1 +1,11 @@
-<h2>It does</h2>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'vidshare/index.css' %}">
+{% endblock css_files %}
+
+{% block content  %}
+    <div class="starting"></div>
+{% endblock content %}
+
