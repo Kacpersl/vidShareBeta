@@ -18,6 +18,7 @@ class Author(models.Model):
 class Video(models.Model):
     video = models.FileField(upload_to='videos_uploaded',null=True,
 validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])])
+    thumbnail = models.FileField(upload_to='thumbnails-uploads', null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
     date = models.DateField(auto_now_add=True)
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, db_index=True)

@@ -21,6 +21,41 @@
 .box-films .videos-row .video {
     height: 18rem;
     width: 30%;
-    border: 1px solid #ad4bad;
+
     color: rgb(209, 215, 221);
 }
+
+.box-films .videos-row .video a img {
+
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+.box-films .videos-row .video a img:hover {
+    opacity: 0.6;
+    transition: 0.1s ease-out;
+}
+
+
+
+.box-films .videos-row .video .caption .title {
+    display: inline;
+    padding: 0.15rem 0.3rem;
+    background-color: #3d3d3d;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.box-films .videos-row .video .caption .additional-information {
+    margin-top: 1.2rem;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-films .videos-row .video .caption .additional-information a {
+    text-decoration: none;
+    color: rgb(123, 123, 214);
+}
+

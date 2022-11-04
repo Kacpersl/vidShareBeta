@@ -19,7 +19,7 @@ body {
 
 #main-nav .bar {
     display: flex;
-    background-color: #2f334c;
+    background-color: #37284b;
     height: 4rem;
     align-items: center;
     justify-content: space-between;
@@ -76,7 +76,7 @@ body {
 }
 
 main {
-    background-color: #333;
+    background-color: #2f334c;
     display: flex;
     justify-content: center;
     align-items: center;

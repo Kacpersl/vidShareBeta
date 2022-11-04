@@ -11,11 +11,25 @@
         <div class="videos-row">
             {% for video in videos %}
                 <div class="video">
-                    {{ video.video }}
+                    <a href="">
+                        <img src='{{ video.thumbnail.url }}'>
+                        {% comment %} <video-js class='vjs-theme-sea'
+                            width="360"
+                            height="200"
+                            controls
+                            data-setup='={"playbackRates": [0.5, 1, 1.5, 2], "fluid": true'
+                            >
+                            <source src="/media/{{ video.video }}" type='video/mp4'>
+                            <p class='vjs-no-js'> To view this veido please enable js<a href="https://videojs.com/html5-video-support/" target="_blank">Support HTML5 video</a></p>
+                        </video-js> {% endcomment %}
+                    </a> 
+                    
                     <div class="caption">
-                        {{ video.title }}
-                        <div class="additional-inforamation">
-                            {{ video.author }}
+                        <div class="title">{{ video.title }}</div>
+                        
+                        <div class="additional-information">
+                            <a href="#">{{ video.author }}</a>
+                            
                             {{ video.date }}
                         </div>
                     </div>
