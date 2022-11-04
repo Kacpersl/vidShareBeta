@@ -1,6 +1,7 @@
 from enum import unique
 from django.db import models
 from django.core.validators import FileExtensionValidator
+
 # Create your models here.
 
 class Author(models.Model):

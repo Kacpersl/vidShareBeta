@@ -22,6 +22,7 @@ body {
     background-color: #2f334c;
     height: 4rem;
     align-items: center;
+    justify-content: space-between;
 }
 
 #main-nav .bar a {
@@ -29,6 +30,16 @@ body {
     font-size: 2rem;
     color: rgb(156, 97, 196);
     font-weight: bold;
+}
+
+#main-nav .bar .all-videos {
+    font-size: 1rem;
+    color: rgb(214, 215, 216);
+    margin-right: 5.5rem;
+}
+
+#main-nav .bar .all-videos:hover {
+    color: #545355;
 }
 
 #main-nav .bar a:hover {

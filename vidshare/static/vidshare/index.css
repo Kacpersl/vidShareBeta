@@ -19,7 +19,8 @@
 }
 
 .box-films .videos-row .video {
-    height: 12rem;
+    height: 18rem;
     width: 30%;
     border: 1px solid #ad4bad;
+    color: rgb(209, 215, 221);
 }

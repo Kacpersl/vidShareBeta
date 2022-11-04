@@ -9,9 +9,18 @@
     <div class="box-films starting">
         <h2>Lately Uplouded</h2>
         <div class="videos-row">
-            <div class="video"></div>
-            <div class="video"></div>
-            <div class="video"></div>
+            {% for video in videos %}
+                <div class="video">
+                    {{ video.video }}
+                    <div class="caption">
+                        {{ video.title }}
+                        <div class="additional-inforamation">
+                            {{ video.author }}
+                            {{ video.date }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
     <div class="box-films random">
