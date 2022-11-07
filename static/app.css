@@ -28,6 +28,7 @@ body {
     height: 4rem;
     align-items: center;
     justify-content: space-between;
+ 
 }
 
 #main-nav .bar a {
@@ -52,11 +53,12 @@ body {
 }
 
 #main-nav .secondary-bar {
-    background-color: #545355;
+    background-color: #544f6d;
     height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 #main-nav .secondary-bar ul {
@@ -87,7 +89,9 @@ main {
     justify-content: center;
     align-items: center; */
     min-height: 100vh;
+
 }
+
 
 .container {
     margin: auto;

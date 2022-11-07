@@ -1,0 +1,24 @@
+<div class="video">
+    <a href="">
+        <img src='{{ video.thumbnail.url }}'>
+        {% comment %} <video-js class='vjs-theme-sea'
+            width="360"
+            height="200"
+            controls
+            data-setup='={"playbackRates": [0.5, 1, 1.5, 2], "fluid": true'
+            >
+            <source src="/media/{{ video.video }}" type='video/mp4'>
+            <p class='vjs-no-js'> To view this veido please enable js<a href="https://videojs.com/html5-video-support/" target="_blank">Support HTML5 video</a></p>
+        </video-js> {% endcomment %}
+    </a> 
+    
+    <div class="caption">
+        <div class="title">{{ video.title }}</div>
+        
+        <div class="additional-information">
+            <a href="#"><i class="fa-solid fa-user"></i>  {{ video.author }}</a>
+            <div class="date">{{ video.date }}</div>
+            
+        </div>
+    </div>
+</div>

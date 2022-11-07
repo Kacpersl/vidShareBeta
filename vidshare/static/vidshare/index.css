@@ -39,7 +39,7 @@
     opacity: 0.6;
     transition: 0.2s ease-out;
     scale: 1.05;
-
+    border: 1.5px solid #ffffff;
     
 }
 
