@@ -24,6 +24,8 @@ class DetailView(DetailView):
     template_name = "vidshare/detail-page.html"
     model = Video
 
-class PostsView(ListView):
+class VideosView(ListView):
     template_name = "vidshare/all-posts.html"
     model = Video
+    context_object_name = "videos"
+    ordering = [ "-date" ]

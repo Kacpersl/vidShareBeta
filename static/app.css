@@ -77,9 +77,9 @@ body {
 
 main {
     background-color: #2f334c;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     min-height: 100vh;
 }
 

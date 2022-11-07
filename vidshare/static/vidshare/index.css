@@ -16,6 +16,7 @@
 .box-films .videos-row {
     display: flex;
     justify-content: space-around;
+    /* height: 40rem; */
 }
 
 .box-films .videos-row .video {
@@ -30,13 +31,17 @@
     max-width: 100%;
     max-height: 100%;
     border-radius: 5px;
+    border: 1.5px solid #b8b6b6;
+    margin-bottom: 1rem;
 }
 
 .box-films .videos-row .video a img:hover {
     opacity: 0.6;
-    transition: 0.1s ease-out;
-}
+    transition: 0.2s ease-out;
+    scale: 1.05;
 
+    
+}
 
 
 .box-films .videos-row .video .caption .title {
@@ -56,6 +61,13 @@
 
 .box-films .videos-row .video .caption .additional-information a {
     text-decoration: none;
-    color: rgb(123, 123, 214);
+    color: rgb(122, 116, 175);
 }
 
+.box-films .videos-row .video .caption .additional-information .date {
+    font-size: 12px;
+    background-color: rgb(109, 71, 116);
+    padding: 0.1rem 0.2rem;
+    border: 1px solid #345;
+    border-radius: 5px;
+}
