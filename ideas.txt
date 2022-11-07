@@ -1,2 +1,5 @@
 when user visit specific video page marking is as viewed by red border or sth based on cookies
+
 adding view later page based on cookies
+
+Authors detail pages
