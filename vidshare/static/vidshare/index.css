@@ -1,7 +1,7 @@
 .box-films {
     max-width: 90%;
     border: 3px solid #b4b4b4;
-    height: 40vh;
+    min-height: 26rem;
     border-radius: 5px;
     margin-top: 1rem;
     background-color: #2b2c31;
@@ -16,7 +16,7 @@
 .box-films .videos-row {
     display: flex;
     justify-content: space-around;
-    /* height: 40rem; */
+    
 }
 
 .box-films .videos-row .video {
@@ -71,3 +71,4 @@
     border: 1px solid #345;
     border-radius: 5px;
 }
+

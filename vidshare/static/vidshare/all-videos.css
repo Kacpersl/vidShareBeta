@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@300;400&family=Montserrat:ital,wght@0,300;1,300&display=swap');
+
 .container {
     margin: auto;
     
@@ -8,5 +10,7 @@
 }
 
 .content h1 {
-  color: rgb(213, 217, 221);  
+   color: rgb(213, 217, 221);  
+   font-family: 'Anton', sans-serif;
+   font-size: 46px;
 }

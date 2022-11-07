@@ -17,8 +17,13 @@ class Author(models.Model):
 class Category(models.Model):
     option = models.CharField(max_length=30)
 
+    class Meta:
+        verbose_name_plural = "categories"
+
     def __str__(self):
         return self.option
+
+
     
 
 
