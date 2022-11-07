@@ -3,3 +3,5 @@ when user visit specific video page marking is as viewed by red border or sth ba
 adding view later page based on cookies
 
 Authors detail pages
+
+On Video specific page make similar videos moving row with videos the same category

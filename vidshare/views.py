@@ -1,7 +1,9 @@
 
+from unicodedata import category
 from django.shortcuts import render
-from .models import Video
+from .models import Category, Video
 from django.views.generic import ListView, DetailView
+from random import shuffle
 
 
 
@@ -19,6 +21,12 @@ class HomePage(ListView):
         context = super().get_queryset()
         data = context[:3]
         return data
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        context["videos_random"] = Video.objects.get
+        return context
     
 class DetailView(DetailView):
     template_name = "vidshare/detail-page.html"
@@ -28,4 +36,4 @@ class VideosView(ListView):
     template_name = "vidshare/all-posts.html"
     model = Video
     context_object_name = "videos"
-    ordering = [ "-date" ]
+    

@@ -14,3 +14,26 @@
    font-family: 'Anton', sans-serif;
    font-size: 46px;
 }
+
+.content .title {
+    position: relative;
+}
+
+.content .title:before{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	border-bottom: solid 2px #000;
+	animation: animation 2s linear forwards;
+}
+
+@keyframes animation {
+	0%{
+		width: 0%;
+	}
+	100%{
+		width: 100%;
+	}
+}
