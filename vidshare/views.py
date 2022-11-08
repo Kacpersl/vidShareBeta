@@ -36,4 +36,16 @@ class VideosView(ListView):
     template_name = "vidshare/all-posts.html"
     model = Video
     context_object_name = "videos"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        videos = Video.objects.all()
+        for video in videos:
+            video_qs = video.category.all()
+            for qs in video_qs:
+                if "Sport" in str(qs):
+                    print(video.title)
+                
+        context["sport_videos"] = Video.objects.filter()
+        return context
+    
     

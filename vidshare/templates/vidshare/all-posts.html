@@ -11,8 +11,14 @@
         <div class="video-block">
             <ul>
                 {% for video in videos %}
-                    <li>{{ video.category }}</video></li>
-                {% endfor %}
+                
+                    {% for video_qs in video.category.all %}
+                    
+                    <li><h1>{{ video_qs }}</h1></li>
+                    
+                    {% endfor %}
+                
+               {% endfor %}
             </ul>
         </div>
     </div>
