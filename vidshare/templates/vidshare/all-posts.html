@@ -3,22 +3,22 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'vidshare/all-videos.css' %}">
+    <link rel="stylesheet" href="{% static 'vidshare/video-include.css' %}">
 {% endblock css_files %}
 
 {% block content %}
     <div class="content">
-        <h1 class="title">Films Collection</h1>
-        <div class="video-block">
+        <div class="title"><h1>Films Collection</h1></div>
+        
+        <div class="video-block comedy">
+            <h2>To make You laugh</h2>
             <ul>
-                {% for video in videos %}
-                
-                    {% for video_qs in video.category.all %}
-                    
-                    <li><h1>{{ video_qs }}</h1></li>
-                    
-                    {% endfor %}
-                
-               {% endfor %}
+                {% for video in comedy_videos %}
+                <li class="element">
+                    {% include 'vidshare/includes/video-include.html' %}
+                </li>
+                {% endfor %}
+               
             </ul>
         </div>
     </div>

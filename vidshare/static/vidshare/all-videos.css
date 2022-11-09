@@ -1,22 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@300;400&family=Montserrat:ital,wght@0,300;1,300&display=swap');
 
-.container {
-    margin: auto;
-    
-    width: 100%;
-    overflow: auto;
-    padding: 0 20px;
-    
+
+.content {
+	color: #d5d9dd;
+}
+.content h1 {
+   color: #d5d9dd;  
+   font-family: 'Anton', sans-serif;
+   font-size: 3.4rem;
+
 }
 
-.content h1 {
-   color: rgb(213, 217, 221);  
-   font-family: 'Anton', sans-serif;
-   font-size: 46px;
+.content h2 {
+	font-family: 'Anton', sans-serif;
+	font-size: 2.4rem;
+	display: block;
+	color: #d2d4b1;
+	
 }
 
 .content .title {
     position: relative;
+	max-width: 1400px;
+	width: 100%;
+	margin: auto;
 }
 
 .content .title:before{
@@ -26,7 +33,7 @@
 	bottom: 0;
 	width: 0;
 	border-bottom: solid 2px #000;
-	animation: animation 2s linear forwards;
+	animation: animation 1.4s linear forwards;
 }
 
 @keyframes animation {
@@ -37,3 +44,13 @@
 		width: 100%;
 	}
 }
+
+.container {
+    margin: auto;
+    max-width: 1800px;
+    width: 100%;
+    overflow: auto;
+    padding: 0 20px;
+    
+}
+
