@@ -31,6 +31,7 @@ class HomePage(ListView):
 class DetailView(DetailView):
     template_name = "vidshare/detail-page.html"
     model = Video
+    context_object_name = "video"
 
 class VideosView(ListView):
     template_name = "vidshare/all-posts.html"

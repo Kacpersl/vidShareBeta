@@ -16,17 +16,18 @@
 	font-size: 2.4rem;
 	display: block;
 	color: #d2d4b1;
+	margin-bottom: 0;
 	
 }
 
-.content .title {
+.content .main-title {
     position: relative;
 	max-width: 1400px;
 	width: 100%;
 	margin: auto;
 }
 
-.content .title:before{
+.content .main-title:before{
 	content: '';
 	position: absolute;
 	left: 0;
@@ -45,12 +46,73 @@
 	}
 }
 
+.element .video {
+	width: 100%;
+}
+
+
+
 .container {
     margin: auto;
-    max-width: 1800px;
+    max-width: none;
     width: 100%;
     overflow: auto;
-    padding: 0 20px;
+    padding: 0;
+	padding-left: 40px;
     
 }
 
+.row-scroll {
+	display: grid;
+
+	grid-auto-flow: column;
+	grid-auto-columns: 23% ;
+	overflow-x: auto;
+	overscroll-behavior-inline: contain;
+	scroll-snap-type: inline mandatory;
+	border-bottom: 1px solid#000;
+	padding-bottom: 1rem;
+
+
+
+}
+
+.row-scroll:last-child {
+	margin-bottom: 2rem;
+}
+
+.row-scroll > * {
+	scroll-snap-align: start;
+}
+
+.row-scroll .element {
+	margin: 1rem;
+
+	padding: 1rem;
+	
+
+}
+
+.row-scroll .element .video .title {
+	background-color: none;
+
+}
+
+.row-scroll .element:first-child {
+	padding-left: 1rem;
+}
+
+button {
+	border: 3px solid #000;
+	border-radius: 50%;
+	position: absolute;
+	width: 3rem;
+	height: 3rem;
+	z-index: 10;
+	cursor: pointer;
+
+}
+
+#slideRight {
+	padding-right: 10rem;
+}

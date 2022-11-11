@@ -2,24 +2,77 @@
 {% load static %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static 'vidshare/all-videos.css' %}">
+    
     <link rel="stylesheet" href="{% static 'vidshare/video-include.css' %}">
+    <link rel="stylesheet" href="{% static 'vidshare/all-videos.css' %}">
+
 {% endblock css_files %}
 
 {% block content %}
     <div class="content">
-        <div class="title"><h1>Films Collection</h1></div>
+        <div class="main-title"><h1>Films Collection</h1></div>
         
         <div class="video-block comedy">
             <h2>To make You laugh</h2>
-            <ul>
+            <div class="row-scroll">
+
                 {% for video in comedy_videos %}
-                <li class="element">
+                <div class="element">
                     {% include 'vidshare/includes/video-include.html' %}
-                </li>
+                </div>
                 {% endfor %}
-               
-            </ul>
+
+            </div>
+        </div>
+        <div class="video-block sport">
+            <h2>If you are passioned about sport</h2>
+            <div class="row-scroll">
+
+                {% for video in sport_videos %}
+                <div class="element">
+                    {% include 'vidshare/includes/video-include.html' %}
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="video-block educational">
+            <h2>Education</h2>
+            <div class="row-scroll">
+
+                {% for video in educational_videos %}
+                <div class="element">
+                    {% include 'vidshare/includes/video-include.html' %}
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="video-block gaming">
+            <h2>Gaming</h2>
+            <div class="row-scroll">
+
+                {% for video in gaming_videos %}
+                <div class="element">
+                    {% include 'vidshare/includes/video-include.html' %}
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="video-block political">
+            <h2>Everything about politic</h2>
+            <div class="row-scroll">
+
+                {% for video in political_videos %}
+                <div class="element">
+                    {% include 'vidshare/includes/video-include.html' %}
+                </div>
+                {% endfor %}
+
+            </div>
         </div>
     </div>
+
+
 {% endblock content %}

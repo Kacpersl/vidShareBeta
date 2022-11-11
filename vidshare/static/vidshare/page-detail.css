@@ -1,0 +1,43 @@
+#main-nav .secondary-bar {
+    display: none;
+}
+
+#main-nav .bar {
+    background-color: white;
+
+}
+
+#main-nav .bar .all-videos {
+    color: #9c61c4;
+}
+
+#main-nav .bar a {
+    border-bottom: 2px solid #999;
+}
+
+main {
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+
+}
+
+.video-block .video {
+    margin-top: 2rem;
+}
+
+.video-block .description .title-date {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+}
+
+
+
+
+
+
+.video-block .description .secondary a {
+    color: rgb(178, 93, 189);
+    text-decoration: none;
+    border-bottom: 1px solid #999;
+}

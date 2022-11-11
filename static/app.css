@@ -34,7 +34,7 @@ body {
 #main-nav .bar a {
     margin-left: 5.5rem;
     font-size: 2rem;
-    color: rgb(156, 97, 196);
+    color: #9c61c4;
     font-weight: bold;
 }
 
@@ -83,7 +83,7 @@ body {
 }
 
 main {
-    background-color: #2f334c;
+    background-color: #3a405e;
     background-image: linear-gradient(to bottom right, #2f334c, #40295c);
     /* display: flex;
     justify-content: center;

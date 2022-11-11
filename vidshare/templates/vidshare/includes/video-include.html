@@ -1,5 +1,5 @@
 <div class="video">
-    <a href="">
+    <a href="{% url 'detail-page' video.slug %}">
         <img src='{{ video.thumbnail.url }}'>
         {% comment %} <video-js class='vjs-theme-sea'
             width="360"
