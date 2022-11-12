@@ -1,6 +1,7 @@
 from enum import unique
 from django.db import models
 from django.core.validators import FileExtensionValidator
+from django.forms import SlugField
 
 # Create your models here.
 
@@ -8,6 +9,7 @@ class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
+    slug = models.SlugField(unique=True, db_index=True, null=True)
 
     
 

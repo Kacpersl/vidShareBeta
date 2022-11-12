@@ -1,0 +1,27 @@
+main {
+    color: #e2e2e2;
+}
+
+.author-block #name {
+    font-size: 1.8rem;
+    color: rgb(212, 212, 212);
+}
+
+.videos {
+
+    margin-bottom: 3rem;
+    padding-top: 0rem;
+    overflow-y: visible;
+    
+}
+
+.videos .video {
+    margin-right: 2rem;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+p {
+    color: blanchedalmond;
+}
+

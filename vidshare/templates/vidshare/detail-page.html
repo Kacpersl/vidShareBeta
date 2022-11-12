@@ -23,7 +23,7 @@
             <p>{{ video.date }}</p>
         </div>
         <div class="secondary">
-            <h5><a href=""><i class="fa-solid fa-user"></i>  {{ video.author }}</a></h5>
+            <h5><a href="{% url 'author-page' video.author.slug %}"><i class="fa-solid fa-user"></i>  {{ video.author }}</a></h5>
             <div class="buttons">
 
             </div>

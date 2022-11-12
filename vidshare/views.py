@@ -1,8 +1,8 @@
 
 from unicodedata import category
 from django.shortcuts import render
-from .models import Category, Video
-from django.views.generic import ListView, DetailView
+from .models import Category, Video, Author
+from django.views.generic import ListView, DetailView, View
 from random import shuffle
 
 
@@ -22,11 +22,7 @@ class HomePage(ListView):
         data = context[:3]
         return data
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        
-        context["videos_random"] = Video.objects.get
-        return context
+    
     
 class DetailView(DetailView):
     template_name = "vidshare/detail-page.html"
@@ -48,3 +44,9 @@ class VideosView(ListView):
         return context
     
     
+class AuthorView(DetailView):
+    template_name = "vidshare/author-page.html"
+    model = Author
+    context_object_name = 'author'
+
+  

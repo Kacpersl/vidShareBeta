@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'vidshare/author-page.css' %}">
+<link rel="stylesheet" href="{% static 'vidshare/video-include.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+    <div class="author-block">
+        <div id="name">
+            <h1>{{ author.last_name }}, {{ author.first_name }}</h1>
+
+        </div>
+        <p>Video Collection:</p>
+        <div class="videos">
+            {% for video in author.videos.all %}
+               
+                    {% include 'vidshare/includes/video-include.html' %}
+                
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

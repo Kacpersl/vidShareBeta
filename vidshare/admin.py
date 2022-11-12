@@ -7,10 +7,11 @@ class VideoAdmin(admin.ModelAdmin):
     list_display = ("title", "date",)
     prepopulated_fields = {"slug": ("title",)}
 
-
+class AuthorAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("first_name", "last_name")}
 
 admin.site.register(Video, VideoAdmin)
 
-admin.site.register(Author)
+admin.site.register(Author ,AuthorAdmin)
 
 admin.site.register(Category)

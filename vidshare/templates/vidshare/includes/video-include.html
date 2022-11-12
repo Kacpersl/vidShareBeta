@@ -16,7 +16,7 @@
         <div class="title">{{ video.title }}</div>
         
         <div class="additional-information">
-            <a href="#"><i class="fa-solid fa-user"></i>  {{ video.author }}</a>
+            <a href="{% url 'author-page' video.author.slug %}"><i class="fa-solid fa-user"></i>  {{ video.author }}</a>
             <div class="date">{{ video.date }}</div>
             
         </div>
