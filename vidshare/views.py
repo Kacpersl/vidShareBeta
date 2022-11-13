@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import Category, Video, Author
 from django.views.generic import ListView, DetailView, View
 from random import shuffle
+from .forms import CommentForm
 
 
 
@@ -34,6 +35,7 @@ class DetailView(DetailView):
         for category in self.object.category.all():
             print(category)
             context["recommended"] = Video.objects.all().filter(category__option=category)
+        context["comment_form"] = CommentForm()
         
         return context
     

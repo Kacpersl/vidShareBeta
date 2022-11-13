@@ -27,8 +27,7 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
-class Comment(models.Model):
-    pass
+
 
     
 
@@ -47,4 +46,8 @@ validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm',
         return self.title
 
     
-    
+class Comment(models.Model):
+    username = models.CharField(max_length=55)
+    text = models.TextField(max_length=400)
+    date = models.DateField(auto_now_add=True)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name="comments")
