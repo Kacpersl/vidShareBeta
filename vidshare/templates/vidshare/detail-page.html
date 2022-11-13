@@ -8,6 +8,13 @@
 {% endblock css_files %}
 
 {% block content %}
+
+{% if comment_form.errors %}
+    <div class="error-pop-up">
+        <h3>Something Went Wrong!</h3>
+        <p>It seems there was some issue with your comment, please make sure every filed is correct.</p>
+    </div>
+{% endif %}
 <div class="video-block">
     <div class="main-video-block">
         <video-js class='vjs-theme-sea main_video'
@@ -39,7 +46,7 @@
                     <form action="{% url 'detail-page' main_video.slug %}" method="POST">
                         {% csrf_token %}
                         {% for form_field in comment_form %}
-                            <div class="input-control">
+                            <div class="input-control {% if form_field.errors %}error-issue{% endif %}">
                                 {{ form_field.label_tag }}
                                 {{ form_field }}
                                 {{ form_field.errors }}
@@ -48,6 +55,17 @@
                         
                         <button>Post</button>
                     </form>
+                </div>
+                <div class="comments-display">
+                    {% for comment in comments %}
+                        <div class="comment-control">
+                            <div class="comment-upper">
+                                <h4>{{ comment.username }}</h4>
+                                <p>{{ comment.date }}</p>
+                            </div>
+                            <p class="comment-value">{{ comment.text }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

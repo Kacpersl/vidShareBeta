@@ -75,7 +75,7 @@ main {
     border: 2px solid rgb(156, 156, 156);
     border-radius: 5px;
     margin-bottom: 1rem;
-
+    
 }
 
 .video-block .recommendations .video:first-child {
@@ -150,5 +150,61 @@ main {
 
 .comment-block h1 {
     text-align: center;
-    border-bottom: 2PX solid #6e6e6e;
+    border-bottom: 2PX solid #9c61c4;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    color: #ca0202;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.error-issue input  {
+    border: 1px solid #ca0202;
+    background-color: #ffeeee;
+}
+
+.error-issue textarea {
+    border: 1px solid #ca0202;
+    background-color: #ffeeee;
+}
+
+.error-issue label {
+    color: #ca0202;
+}
+
+.error-pop-up {
+    background-color: #ffeeee;
+    border: 1px solid #ca0202;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    position: absolute;
+    z-index: 10;
+    padding: 0.7rem 1.5rem;
+    width:400px;
+    /* left:0;
+    right:0;
+    margin:0 auto; */
+    margin-left: 500px;
+    
+}
+
+.comment-control {
+    border-bottom: 1px solid #999;
+}
+
+.comment-control .comment-upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-control .comment-upper p {
+    font-size: 0.8rem;
+}
+
+.comment-control .comment-value {
+    font-size: 1rem;
+    margin-top: 0;
 }
