@@ -3,31 +3,39 @@
 
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'vidshare/page-detail.css' %}">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock css_files %}
 
 {% block content %}
 <div class="video-block">
-    <video-js class='vjs-theme-sea video'
-        width="1200"
-        height="680"
-        controls
-        data-setup='={"playbackRates": [0.5, 1, 1.5, 2], "fluid": true'
-        >
-        <source src="/media/{{ video.video }}" type='video/mp4'>
-        <p class='vjs-no-js'> To view this veido please enable js<a href="https://videojs.com/html5-video-support/" target="_blank">Support HTML5 video</a></p>
-    </video-js>
-    <div class="description">
-        <div class="title-date">
-            <h2>{{ video.title }}</h2>
-            <p>{{ video.date }}</p>
-        </div>
-        <div class="secondary">
-            <h5><a href="{% url 'author-page' video.author.slug %}"><i class="fa-solid fa-user"></i>  {{ video.author }}</a></h5>
-            <div class="buttons">
+    <div class="main-video-block">
+        <video-js class='vjs-theme-sea video'
+            width="1200"
+            height="680"
+            controls
+            data-setup='={"playbackRates": [0.5, 1, 1.5, 2], "fluid": true'
+            >
+            <source src="/media/{{ video.video }}" type='video/mp4'>
+            <p class='vjs-no-js'> To view this veido please enable js<a href="https://videojs.com/html5-video-support/" target="_blank">Support HTML5 video</a></p>
+        </video-js>
+        <div class="description">
+            <div class="title-date">
+                <h2>{{ video.title }}</h2>
+                <p>{{ video.date }}</p>
+            </div>
+            <div class="secondary">
+                <h5><a href="{% url 'author-page' video.author.slug %}"><i class="fa-solid fa-user"></i>  {{ video.author }}</a></h5>
+                <div class="buttons">
 
+                </div>
             </div>
         </div>
+    </div>
+    <div class="recomendations">
+        {% for recomendation in recommended %}
+            <p>{{ recomendation.title }}</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}

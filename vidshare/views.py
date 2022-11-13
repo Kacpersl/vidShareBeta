@@ -29,6 +29,15 @@ class DetailView(DetailView):
     model = Video
     context_object_name = "video"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        for category in self.object.category.all():
+            print(category)
+            context["recommended"] = Video.objects.all().filter(category__option=category)
+        
+        return context
+    
+
 class VideosView(ListView):
     template_name = "vidshare/all-posts.html"
     model = Video
