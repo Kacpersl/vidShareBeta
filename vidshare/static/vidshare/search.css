@@ -1,0 +1,13 @@
+.videos {
+
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+    overflow-y: visible;
+    
+}
+
+.videos .video {
+    margin-right: 2rem;
+    display: inline-block;
+    margin-bottom: 3rem;
+}

@@ -8,6 +8,7 @@ from .models import Category, Video, Author, Comment
 from django.views.generic import ListView, View
 from random import shuffle
 from .forms import CommentForm
+from django.db.models import Q
 
 
 
@@ -55,7 +56,7 @@ class DetailView(View):
         context = {
             "main_video": video,
             "comment_form": comment_form,
-            "comments": Comment.objects.all().filter(video__slug=slug)
+            "comments": Comment.objects.all().filter(video__slug=slug).order_by("-id")
         }
 
         for category in video.category.all():
@@ -63,19 +64,6 @@ class DetailView(View):
 
         return render(request, 'vidshare/detail-page.html', context)
 
-    # template_name = "vidshare/detail-page.html"
-    # model = Video
-    # context_object_name = "main_video"
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     for category in self.object.category.all():
-    #         print(category)
-    #         context["recommended"] = Video.objects.all().filter(category__option=category)
-    #     context["comment_form"] = CommentForm()
-        
-    #     return context
-    
 
 class VideosView(ListView):
     template_name = "vidshare/all-posts.html"
@@ -106,3 +94,18 @@ class AuthorView(View):
     # context_object_name = 'author'
 
   
+class VideoSearch(View):
+    def get(self, request):
+        target = self.request.GET.get("target", default="")
+
+        match_list = Video.objects.filter(
+            Q(title__icontains=target) |
+            Q(author__first_name__icontains=target) |
+            Q(author__last_name__icontains=target)
+        )
+
+        context = {
+            'match_list': match_list,
+        }
+
+        return render(request, 'vidshare/search.html', context)

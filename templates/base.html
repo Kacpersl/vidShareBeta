@@ -14,12 +14,17 @@
     {% block css_files %}
     {% endblock css_files %}
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 </head>
 <body>
     <nav id="main-nav">
         <div class="bar">
             <a href="/" id="logo"><i class="fa-solid fa-clapperboard"></i> VidShare</a>  
+            <form action="{% url 'video-search' %}" method="GET">
+                <input class="input-search-control" name="target" type="text" placeholder="Search" value= "{{ request.GET.target }}">
+                <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
+            </form>
             <a href="#"  class="all-videos">Add video</a>        
         </div>
         <div class="secondary-bar">
