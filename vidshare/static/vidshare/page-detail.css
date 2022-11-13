@@ -34,14 +34,66 @@ main {
 
 }
 
-.video-block .video {
+.video-block .main_video {
     margin-top: 2rem;
 }
 
-.video-block .description .title-date {
+.video-block .main_description .title-date {
     display: flex;
     justify-content: space-between;
     width: 1200px;
+
+}
+
+.video-block .main_description .title-date p {
+    border-bottom: 1px solid #999;
+}
+
+.video-block .main_description .secondary a {
+    text-decoration: none;
+    color: rgb(88, 182, 182);
+}
+
+.video-block .recommendations {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6rem;
+
+}
+
+
+.video-block .recommendations p {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.video-block .recommendations .video {
+    width: 95%;
+    padding: 2rem;
+    padding-bottom: 5.5rem;
+    background-color: rgb(240, 240, 240);
+    border: 2px solid rgb(156, 156, 156);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+
+}
+
+.video-block .recommendations .video:first-child {
+    padding-top: 1rem;
+
+}
+
+
+
+.video-block .recommendations .video a img{
+    border: 2px solid rgb(0, 0, 0);
+    margin-bottom: 0;
+    height: 90%;
+}
+
+.video-block .recommendations .video .caption .title {
+    background-color: rgb(240, 240, 240);
+    color: black;
 }
 
 

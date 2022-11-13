@@ -27,7 +27,7 @@ class HomePage(ListView):
 class DetailView(DetailView):
     template_name = "vidshare/detail-page.html"
     model = Video
-    context_object_name = "video"
+    context_object_name = "main_video"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
