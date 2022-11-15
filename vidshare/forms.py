@@ -12,3 +12,4 @@ class CommentForm(ModelForm):
         widgets = {
             'text': Textarea(attrs={'placeholder': 'Enter Your Comment'}),
         }
+
