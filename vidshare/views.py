@@ -10,6 +10,7 @@ from django.views.generic import ListView, View
 from random import shuffle
 from .forms import CommentForm
 from django.db.models import Q
+from django.views.generic.edit import CreateView
 
 
 
@@ -28,20 +29,30 @@ class HomePage(ListView):
         data = context[:3]
         return data
 
-    
-    
+
 class DetailView(View):
 
     def get(self, request, slug):
         video = Video.objects.get(slug=slug)
         stored_videos = request.session.get("saved_videos")
+        viewed_videos = request.session.get("viewed_videos")
+
+        if viewed_videos is None or len(viewed_videos) < 1:
+            viewed_videos = []
         
         context = {
             "main_video": video,
             "comment_form": CommentForm(),
             "comments": Comment.objects.all().filter(video__slug=slug)
         }
-        print(stored_videos)
+        
+        if slug not in viewed_videos:
+            viewed_videos.append(slug)
+            request.session["viewed_videos"] = viewed_videos
+            context["viewed"] = False
+        else:
+            context["viewed"] = True
+        
         if stored_videos is not None:
             context["is_stored"] = slug in stored_videos
         else:
@@ -58,6 +69,7 @@ class DetailView(View):
         comment_form = CommentForm(request.POST)
         video = Video.objects.get(slug=slug)
         stored_videos = request.session.get("saved_videos")
+        viewed_videos = request.session.get("viewed_videos")
 
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
@@ -70,6 +82,12 @@ class DetailView(View):
             "comment_form": comment_form,
             "comments": Comment.objects.all().filter(video__slug=slug).order_by("-id")
         }
+
+        if slug not in viewed_videos:
+            
+            context["viewed"] = False
+        else:
+            context["viewed"] = True
 
         if stored_videos is not None:
             context["is_stored"] = slug in stored_videos
@@ -150,19 +168,23 @@ class SaveVideo(View):
     def get(self, request):
         saved_videos = request.session.get("saved_videos")
 
-        if saved_videos is None:
+        if saved_videos is None or len(saved_videos)<1:
 
             context = {
-                "are_videos": None,
+                "are_videos": False,
                 "videos": [],
             }
         else:
             target_videos = Video.objects.filter(slug__in=saved_videos)
             
             context = {
-                "are_videos": None,
+                "are_videos": True,
                 "videos": target_videos,
             }
 
         return render(request, 'vidshare/saved-videos.html', context)
         
+class VideoUploadView(CreateView):
+    model = Video
+    fields = ['video', 'thumbnail', 'title', 'author', 'category']
+    template_name = "vidshare/upload-video.html"

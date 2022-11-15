@@ -11,14 +11,24 @@
 
 {% block content  %}
     <div id="video-grab">
-        <div id="saved-title">
-            <h1>Your Saved Videos</h1>
-        </div>
-        <div class="videos">
-            {% for video in videos %}
-                    {% include 'vidshare/includes/video-include.html' %}
-                
-            {% endfor %}
+        {% if not are_videos %}
+            <div id="saved-title">
+                <h1>You have not added any videos yet</h1>
+            </div>
+            <div class="videos">
+                <p id="nav-paragraph">You have option to add videos for later, so you will be able to have them all in one place. Try this fetaure!</p>
+            </div>
+        {% else %}
+            <div id="saved-title">
+                <h1>Your Saved Videos</h1>
+            </div>
+            <div class="videos">
+                {% for video in videos %}
+                        {% include 'vidshare/includes/video-include.html' %}
+                    
+                {% endfor %}
+        {% endif %}
+        
         </div>
     </div>
 {% endblock content %}
