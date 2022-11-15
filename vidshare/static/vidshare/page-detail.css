@@ -54,6 +54,7 @@ form .search-button:hover {
 
 .video-block {
     display: flex;
+
 }
 
 main {
@@ -221,6 +222,10 @@ main {
     margin:0 auto; */
     margin-left: 500px;
     
+}
+
+.comments-display {
+    max-width: 1200px;
 }
 
 .comment-control {
