@@ -131,3 +131,5 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = '/media/'
+
+SESSION_COOKIE_AGE = 52560000

@@ -1,7 +1,9 @@
-when user visit specific video page marking is as viewed by red border or sth based on cookies
+when user visit specific video page marking is as viewed by red border or sth based on sessions
 
-adding view later page based on cookies
+adding view later page based on sessions
 
 Authors detail pages
 
 On Video specific page make similar videos moving row with videos the same category
+
+make error pop up hide after some time

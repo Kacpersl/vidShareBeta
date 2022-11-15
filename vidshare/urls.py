@@ -7,5 +7,6 @@ urlpatterns = [
     path('all-videos', views.VideosView.as_view(), name='all-videos'),
     path('all-posts/<slug:slug>', views.DetailView.as_view(), name="detail-page"),
     path('authors/<slug:slug>', views.AuthorView.as_view(), name='author-page'),
-    path('search/', views.VideoSearch.as_view(), name="video-search")
+    path('search/', views.VideoSearch.as_view(), name="video-search"),
+    path('saved-videos', views.SaveVideo.as_view(), name="saved-videos"),
 ]

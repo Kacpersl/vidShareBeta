@@ -71,16 +71,52 @@ main {
     display: flex;
     justify-content: space-between;
     width: 1200px;
+    margin-bottom: 1rem;
+}
 
+.video-block .main_description .title-date h2 {
+    margin-bottom: 0;
 }
 
 .video-block .main_description .title-date p {
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #9c61c4;
 }
 
 .video-block .main_description .secondary a {
     text-decoration: none;
     color: rgb(88, 182, 182);
+}
+
+.video-block .main_description .secondary h4 {
+    margin: 0;
+
+}
+
+.video-block .main_description .secondary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-block .main_description .secondary .buttons #save-button button {
+    color: rgb(255, 255, 255);
+    background-color: #9c61c4;
+    border: 1px solid #fff;
+    padding: 0.2rem 0.8rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.video-block .main_description .secondary .buttons #save-button button:hover {
+    background-color: rgb(31, 30, 117);
+    cursor: pointer;
+}
+
+.video-block .main_description .secondary .buttons .cancel {
+    color: #ca0202
+}
+
+.video-block .main_description .secondary .buttons .save {
+    color: #f1ee30
 }
 
 .video-block .recommendations {
@@ -169,11 +205,6 @@ main {
     transition: 0.1s ease-in-out;
 }
 
-
-
-
-
-
 .video-block .description .secondary a {
     color: rgb(178, 93, 189);
     text-decoration: none;
@@ -184,6 +215,7 @@ main {
 .comment-block h1 {
     text-align: center;
     border-bottom: 2PX solid #9c61c4;
+    margin-bottom: 2rem;
 }
 
 .errorlist {

@@ -32,9 +32,23 @@
                 <p>{{ main_video.date }}</p>
             </div>
             <div class="secondary">
-                <h5><a href="{% url 'author-page' main_video.author.slug %}"><i class="fa-solid fa-user"></i>  {{ main_video.author }}</a></h5>
+                <h4><a href="{% url 'author-page' main_video.author.slug %}"><i class="fa-solid fa-user"></i>  {{ main_video.author }}</a></h4>
                 <div class="buttons">
+                    <div id="save-button">
+                        <form action="{% url 'saved-videos' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ main_video.slug }}" name="slug">
+                            <button>
+                                {% if is_stored %}
+                                    <i class="fa-solid fa-xmark cancel"></i> UNSAVE    
+                                {% else %}
+                                    <i class="fa-solid fa-star save"></i> SAVE
+                                {% endif %}
 
+                            </button>
+                        </form>
+                        
+                    </div>
                 </div>
             </div>
             <div class="comment-block">

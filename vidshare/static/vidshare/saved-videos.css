@@ -1,0 +1,47 @@
+.videos {
+
+    margin-bottom: 3rem;
+    padding-top: 1rem;
+    overflow-y: visible;
+    
+}
+
+.videos .video {
+    margin-right: 2rem;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+#video-grab {
+    max-width: 1300px;
+}
+
+#saved-title {
+    font-family: 'Anton', sans-serif;
+	font-size: 1.8rem;
+	display: block;
+    position: relative;
+	width: 100%;
+	margin: auto;
+    color: darkgoldenrod;
+}
+
+#saved-title:before{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	border-bottom: solid 2px #000;
+	animation: animation 1.4s linear forwards;
+}
+
+@keyframes animation {
+	0%{
+		width: 0%;
+	}
+	100%{
+		width: 100%;
+	}
+}
+

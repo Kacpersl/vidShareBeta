@@ -1,6 +1,7 @@
 
 
-from unicodedata import category
+
+from ast import Return
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -33,11 +34,21 @@ class DetailView(View):
 
     def get(self, request, slug):
         video = Video.objects.get(slug=slug)
+        stored_videos = request.session.get("saved_videos")
+        
         context = {
             "main_video": video,
             "comment_form": CommentForm(),
             "comments": Comment.objects.all().filter(video__slug=slug)
         }
+        print(stored_videos)
+        if stored_videos is not None:
+            context["is_stored"] = slug in stored_videos
+        else:
+            context["is_stored"] = False
+            
+
+        
         for category in video.category.all():
             context["recommended"] = Video.objects.all().filter(category__option=category).exclude(slug=slug)
 
@@ -46,6 +57,7 @@ class DetailView(View):
     def post(self, request, slug):
         comment_form = CommentForm(request.POST)
         video = Video.objects.get(slug=slug)
+        stored_videos = request.session.get("saved_videos")
 
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
@@ -58,6 +70,11 @@ class DetailView(View):
             "comment_form": comment_form,
             "comments": Comment.objects.all().filter(video__slug=slug).order_by("-id")
         }
+
+        if stored_videos is not None:
+            context["is_stored"] = slug in stored_videos
+        else:
+            context["is_stored"] = False
 
         for category in video.category.all():
             context["recommended"] = Video.objects.all().filter(category__option=category).exclude(slug=slug)
@@ -109,3 +126,43 @@ class VideoSearch(View):
         }
 
         return render(request, 'vidshare/search.html', context)
+
+class SaveVideo(View):
+    def post(self, request):
+        saved_videos = request.session.get("saved_videos")
+
+        if saved_videos is None:
+            saved_videos = []
+            
+
+        slug = request.POST["slug"]
+        
+        if slug not in saved_videos:
+            saved_videos.append(slug)
+            request.session["saved_videos"] = saved_videos
+        else:
+            saved_videos.remove(slug)
+            request.session["saved_videos"] = saved_videos
+
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    
+    def get(self, request):
+        saved_videos = request.session.get("saved_videos")
+
+        if saved_videos is None:
+
+            context = {
+                "are_videos": None,
+                "videos": [],
+            }
+        else:
+            target_videos = Video.objects.filter(slug__in=saved_videos)
+            
+            context = {
+                "are_videos": None,
+                "videos": target_videos,
+            }
+
+        return render(request, 'vidshare/saved-videos.html', context)
+        
