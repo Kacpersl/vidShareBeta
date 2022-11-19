@@ -22,8 +22,15 @@
 
 
 
+
 .box-films .videos-row {
     display: flex;
     justify-content: space-around;
+    
+}
+
+.substitute {
+    color: antiquewhite;
+    font-size: 1.4rem;
     
 }

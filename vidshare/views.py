@@ -17,18 +17,73 @@ from django.views.generic.edit import CreateView
 # Create your views here.
 
 
-class HomePage(ListView):
-    template_name = "vidshare/index.html"
-    model = Video
-    context_object_name = "videos"
-    ordering = ["-date"]
+# class HomePage(ListView):
+#     template_name = "vidshare/index.html"
+#     model = Video
+#     context_object_name = "videos"
+#     ordering = ["-date"]
+    
 
 
-    def get_queryset(self):
-        context = super().get_queryset()
-        data = context[:3]
-        return data
+#     def get_queryset(self):
+#         context = super().get_queryset()
+#         data = context[:3]
+#         return data
+    
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         saved_videos = self.request.session.get("saved_videos")
+#         if saved_videos is None or len(saved_videos)<1:
 
+#             context = {
+#                 "are_saved_videos": False,
+#                 "saved_videos": [],
+#             }
+#         else:
+#             target_videos = Video.objects.filter(slug__in=saved_videos)
+            
+#             context = {
+#                 "are_saved_videos": True,
+#                 "saved_videos": target_videos[:3],
+#             }
+#         viewed_videos = self.request.session.get("viewed_videos")
+#         return context
+    
+class HomePage(View):
+    def get(self, request):
+        videos = Video.objects.all().order_by("-date")[:3]
+        saved_videos = request.session.get("saved_videos")
+        viewed_videos = request.session.get("viewed_videos")
+
+        if saved_videos is None or len(saved_videos)<1:
+
+          context = {
+              "are_saved_videos": False,
+              "saved_videos": [],
+          }
+        else:
+            
+            target_videos = Video.objects.filter(slug__in=saved_videos)
+            
+            context = {
+                "are_saved_videos": True,
+                "saved_videos": target_videos[:3],
+            }
+
+        if viewed_videos is None or len(viewed_videos)<1:
+
+          context = {
+              "are_viewed_videos": False,
+              "viewed_videos": [],
+          }
+        else:
+            viewed_videos = Video.objects.filter(slug__in=viewed_videos)
+                
+            context.update({"are_viewed_videos": True, "viewed_videos": viewed_videos[:3],})
+            
+        print(context)
+        context["videos"] = videos
+        return render(request, 'vidshare/index.html', context)
 
 class DetailView(View):
 
@@ -43,7 +98,7 @@ class DetailView(View):
         context = {
             "main_video": video,
             "comment_form": CommentForm(),
-            "comments": Comment.objects.all().filter(video__slug=slug)
+            "comments": Comment.objects.all().filter(video__slug=slug).order_by("-id")
         }
         
         if slug not in viewed_videos:

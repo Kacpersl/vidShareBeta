@@ -17,19 +17,38 @@
         </div>
     </div>
     <div class="box-films random">
-        <h2>Random Videos</h2>
+        <h2>Saved Videos</h2>
+        
         <div class="videos-row">
-            <div class="video"></div>
-            <div class="video"></div>
-            <div class="video"></div>
+            {% if are_saved_videos %}
+            {% for video in saved_videos %}
+                {% include 'vidshare/includes/video-include.html' %}
+            {% endfor %}
+
+            {% else %}
+            <div class="substitute">
+                <h1>You didn't add any videos yet</h1>
+                <p>You have option to add videos for later, so you will be able to have them all in one place. Try this fetaure!</p>
+            </div>
+            {% endif %}
+            
         </div>
     </div>
     <div class="box-films starting">
-        <h2>Lately Uplouded</h2>
+        <h2>Your History</h2>
         <div class="videos-row">
-            <div class="video"></div>
-            <div class="video"></div>
-            <div class="video"></div>
+            {% if are_viewed_videos %}
+            {% for video in viewed_videos %}
+                {% include 'vidshare/includes/video-include.html' %}
+            {% endfor %}
+
+            {% else %}
+            <div class="substitute">
+                <h1>You can see here videos you have already watched</h1>
+                <p>Try this out</p>
+            </div>
+            {% endif %}
+            
         </div>
     </div>
     

@@ -1,0 +1,11 @@
+.crash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10rem;
+    background-image: linear-gradient(to left, violet, rgb(141, 95, 173), rgb(56, 56, 182), green, rgb(255, 0, 0), rgb(111, 0, 255), red);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+}

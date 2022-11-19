@@ -7,3 +7,9 @@ Authors detail pages
 On Video specific page make similar videos moving row with videos the same category
 
 make error pop up hide after some time
+
+scroll prettier or buttons in all videos
+
+saved and already watched videos at main page
+
+add video feature /optionally
