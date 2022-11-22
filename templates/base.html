@@ -21,11 +21,11 @@
     <nav id="main-nav">
         <div class="bar">
             <a href="/" id="logo"><i class="fa-solid fa-clapperboard"></i> VidShare</a>  
-            <form action="{% url 'video-search' %}" method="GET">
+            <form action="{% url 'video-search' %}" method="GET" class="form-searchbar">
                 <input class="input-search-control" name="target" type="text" placeholder="Search" value= "{{ request.GET.target }}">
                 <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
             </form>
-            <a href="{% url 'video-upload' %}"  class="all-videos">Add video</a>        
+                   
         </div>
         <div class="secondary-bar">
             <ul>

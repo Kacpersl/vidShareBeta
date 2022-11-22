@@ -14,7 +14,3 @@ class CommentForm(ModelForm):
             'text': Textarea(attrs={'placeholder': 'Enter Your Comment'}),
         }
 
-class VideoForm(ModelForm):
-    class Meta:
-        model = Video
-        fields = ['video', 'thumbnail', 'title', 'author', 'category']

@@ -87,6 +87,9 @@ class HomePage(View):
 
 class DetailView(View):
 
+    def view_video(self, video):
+        pass
+
     def get(self, request, slug):
         video = Video.objects.get(slug=slug)
         stored_videos = request.session.get("saved_videos")
@@ -239,7 +242,3 @@ class SaveVideo(View):
 
         return render(request, 'vidshare/saved-videos.html', context)
         
-class VideoUploadView(CreateView):
-    model = Video
-    fields = ['video', 'thumbnail', 'title', 'author', 'category']
-    template_name = "vidshare/upload-video.html"

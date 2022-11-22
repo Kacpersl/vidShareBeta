@@ -27,7 +27,7 @@ body {
     background-color: #37284b;
     height: 4rem;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
  
 }
 
@@ -108,6 +108,10 @@ main {
     
 }
 
+.form-searchbar {
+    margin-left: 25%;
+}
+
 .input-search-control {
     width: 540px;
     height: 2.3rem;
@@ -116,6 +120,7 @@ main {
     margin-right: 2px;
     background-color: #473363;
     color: #FFF;
+    
 }
 
 .input-search-control::placeholder {

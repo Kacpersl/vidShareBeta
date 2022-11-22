@@ -9,5 +9,5 @@ urlpatterns = [
     path('authors/<slug:slug>', views.AuthorView.as_view(), name='author-page'),
     path('search/', views.VideoSearch.as_view(), name="video-search"),
     path('saved-videos', views.SaveVideo.as_view(), name="saved-videos"),
-    path('video-upload', views.VideoUploadView.as_view(), name="video-upload")
+    
 ]
