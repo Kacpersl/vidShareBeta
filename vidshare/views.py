@@ -87,7 +87,7 @@ class HomePage(View):
 
 class DetailView(View):
 
-    def view_video(self, video):
+    def view_video(self, video_slug):
         pass
 
     def get(self, request, slug):
@@ -117,9 +117,12 @@ class DetailView(View):
             context["is_stored"] = False
             
 
-        
+        recommended = []
         for category in video.category.all():
-            context["recommended"] = Video.objects.all().filter(category__option=category).exclude(slug=slug)
+            for video in Video.objects.all().filter(category__option=category).exclude(slug=slug):
+                recommended.append(video)
+        
+        context["recommended"] = recommended
 
         return render(request, 'vidshare/detail-page.html', context)
 
